@@ -4,7 +4,8 @@
  *
  * Production deployments can implement /api/answer on a serverless host.
  */
-import type { AnswerPayload } from '../types';
+import type { AnswerPayload, AnswerResponse } from "../types";
+
 
 export async function fetchAnswerFromServer(query: string): Promise<AnswerPayload> {
   const res = await fetch('/api/answer', {
