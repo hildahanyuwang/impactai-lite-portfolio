@@ -1,0 +1,86 @@
+{
+  "What interventions are most effective for improving student learning?": {
+    "answer_summary": [
+      "Personalized computer-aided learning (CAL) can be highly effective. In India, the 'Mindspark' software increased math scores by 0.37 SD and Hindi scores by 0.23 SD in under 5 months.",
+      "Large-scale school construction has long-term benefits. In Indonesia, a major construction program increased years of education by up to 0.19 years and future wages by up to 2.7%.",
+      "Financial incentives (CCTs) are effective for enrollment but have mixed results on learning compared to direct pedagogical interventions."
+    ],
+    "evidence_used": [
+      {
+        "card_id": "Muralidharan2017_India_02",
+        "claim_supported": "Mindspark software increased math scores by 0.37 SD and Hindi scores by 0.23 SD."
+      },
+      {
+        "card_id": "Duflo2001_Indonesia_04",
+        "claim_supported": "School construction increased years of education and future wages (1.5% to 2.7%)."
+      },
+      {
+        "card_id": "Baird2011_Malawi_03",
+        "claim_supported": "Context on CCTs vs UCTs for enrollment (though finding focuses on dropout/marriage)."
+      }
+    ],
+    "limitations": "The database contains limited studies on teacher training or curriculum reform. Results for CAL are specific to the Indian context and the specific software used.",
+    "follow_up_prompts": [
+      "Compare conditional vs unconditional cash transfers for girls.",
+      "What is the impact of school construction on wages?"
+    ]
+  },
+  "Do cash transfers actually reduce poverty?": {
+    "answer_summary": [
+      "Unconditional Cash Transfers (UCTs) show immediate impacts on consumption and assets. In Kenya, transfers increased monthly consumption by $36 PPP and assets by $302.",
+      "UCTs also improve psychological well-being, including happiness and life satisfaction.",
+      "Broader 'Graduation' programs (asset transfer + training + cash) caused lasting improvements in consumption and income in 5 out of 6 countries studied."
+    ],
+    "evidence_used": [
+      {
+        "card_id": "Haushofer2016_Kenya_05",
+        "claim_supported": "Transfers increased monthly consumption by $36 (PPP) and assets by $302."
+      },
+      {
+        "card_id": "Banerjee2015_Multi_01",
+        "claim_supported": "Graduation program caused lasting progress in consumption and income in 5/6 countries."
+      }
+    ],
+    "limitations": "Evidence provided focuses on short-to-medium term economic indicators. Long-term intergenerational effects are not covered in the retrieved cards.",
+    "follow_up_prompts": [
+      "Compare conditional vs unconditional cash transfers for girls.",
+      "What interventions are most effective for improving student learning?"
+    ]
+  },
+  "What is the impact of school construction on wages?": {
+    "answer_summary": [
+      "School construction has a positive causal impact on future wages.",
+      "Evidence from Indonesia's INPRES program shows that for each school built per 1,000 children, future wages increased by 1.5% to 2.7%.",
+      "The program also increased years of education by 0.12 to 0.19 years."
+    ],
+    "evidence_used": [
+      {
+        "card_id": "Duflo2001_Indonesia_04",
+        "claim_supported": "Construction of schools led to an increase in future wages (1.5% to 2.7%) and years of education."
+      }
+    ],
+    "limitations": "This finding is based on a large-scale quasi-experimental study in Indonesia (1970s). Generalizability to current contexts with higher baseline enrollment may vary.",
+    "follow_up_prompts": [
+      "What interventions are most effective for improving student learning?",
+      "Do cash transfers actually reduce poverty?"
+    ]
+  },
+  "Compare conditional vs unconditional cash transfers for girls.": {
+    "answer_summary": [
+      "Conditional Cash Transfers (CCTs) are significantly more effective than Unconditional Cash Transfers (UCTs) at keeping adolescent girls in school.",
+      "However, UCTs are more effective than CCTs at delaying marriage and pregnancy among adolescent girls in Malawi.",
+      "This suggests a tradeoff: Conditionality improves schooling outcomes, while unconditionality better addresses certain social empowerment outcomes."
+    ],
+    "evidence_used": [
+      {
+        "card_id": "Baird2011_Malawi_03",
+        "claim_supported": "CCTs effective for school; UCTs effective for delaying marriage/pregnancy."
+      }
+    ],
+    "limitations": "Evidence is primarily drawn from a specific RCT in Malawi. Cultural context plays a significant role in marriage and schooling decisions.",
+    "follow_up_prompts": [
+      "Do cash transfers actually reduce poverty?",
+      "What interventions are most effective for improving student learning?"
+    ]
+  }
+}

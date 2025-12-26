@@ -1,0 +1,62 @@
+[
+  {
+    "card_id": "Banerjee2015_Multi_01",
+    "study_id": "Banerjee2015_Science",
+    "citation": "Banerjee, A., et al. (2015). A multifaceted program causes lasting progress for the very poor: Evidence from six countries. Science.",
+    "domain": "Social Protection",
+    "intervention": "Productive inclusion ('Graduation') package: asset transfer + training + consumption support",
+    "outcome": "Household consumption & income",
+    "finding_summary": "The graduation program caused broad and lasting improvements in consumption, asset holdings, and income in 5 out of 6 countries.",
+    "geography": "Ethiopia, Ghana, Honduras, India, Pakistan, Peru",
+    "source_url": "https://www.science.org/doi/10.1126/science.1260799",
+    "quality_flags": ["RCT", "Multi-country"]
+  },
+  {
+    "card_id": "Muralidharan2017_India_02",
+    "study_id": "Muralidharan2017_NBER",
+    "citation": "Muralidharan, K., Singh, A., & Ganimian, A. J. (2017). Disrupting Education? Experimental Evidence on Technology-Aided Instruction in India. NBER.",
+    "domain": "Education",
+    "intervention": "Personalized computer-aided learning (CAL) software (Mindspark)",
+    "outcome": "Math and Hindi test scores",
+    "finding_summary": "The program increased math scores by 0.37 SD and Hindi scores by 0.23 SD in just 4.5 months. It was cost-effective and closed the learning gap.",
+    "geography": "India",
+    "source_url": "https://www.nber.org/papers/w22923",
+    "quality_flags": ["RCT", "At-scale"]
+  },
+  {
+    "card_id": "Baird2011_Malawi_03",
+    "study_id": "Baird2011_QJE",
+    "citation": "Baird, S., McIntosh, C., & Ozler, B. (2011). Cash or Condition? Evidence from a Cash Transfer Experiment. QJE.",
+    "domain": "Education",
+    "intervention": "Conditional Cash Transfers (CCT) vs Unconditional Cash Transfers (UCT)",
+    "outcome": "School enrollment & dropout",
+    "finding_summary": "CCTs were significantly more effective than UCTs at keeping adolescent girls in school, but UCTs were more effective at delaying marriage and pregnancy.",
+    "geography": "Malawi",
+    "source_url": "https://academic.oup.com/qje/article/126/4/1709/1853531",
+    "quality_flags": ["RCT", "Gender-focus"]
+  },
+  {
+    "card_id": "Duflo2001_Indonesia_04",
+    "study_id": "Duflo2001_AER",
+    "citation": "Duflo, E. (2001). Schooling and Labor Market Consequences of School Construction in Indonesia. AER.",
+    "domain": "Education",
+    "intervention": "Large-scale school construction program (INPRES)",
+    "outcome": "Education attainment & wages",
+    "finding_summary": "Construction of schools led to an increase in years of education (0.12 to 0.19 years) and an increase in future wages (1.5% to 2.7%) for each school built per 1,000 children.",
+    "geography": "Indonesia",
+    "source_url": "https://www.aeaweb.org/articles?id=10.1257/aer.91.4.795",
+    "quality_flags": ["Quasi-experimental", "Long-term"]
+  },
+  {
+    "card_id": "Haushofer2016_Kenya_05",
+    "study_id": "Haushofer2016_QJE",
+    "citation": "Haushofer, J., & Shapiro, J. (2016). The Short-term Impact of Unconditional Cash Transfers to the Poor: Evidence from Kenya. QJE.",
+    "domain": "Social Protection",
+    "intervention": "Unconditional Cash Transfers (GiveDirectly)",
+    "outcome": "Consumption & Psychological well-being",
+    "finding_summary": "Transfers increased monthly consumption by $36 (PPP) and assets by $302. Significant improvements in psychological well-being (happiness, life satisfaction) were observed.",
+    "geography": "Kenya",
+    "source_url": "https://academic.oup.com/qje/article/131/4/1973/2468874",
+    "quality_flags": ["RCT", "Mental Health"]
+  }
+]
