@@ -26,3 +26,20 @@ export interface AIResponseSchema {
 export type ViewState = 'prototype' | 'documents';
 
 export type DocumentType = 'one-pager' | 'tech-brief' | 'deck' | 'faq' | 'eval-note';
+
+export type AnswerPayload = {
+  query: string;
+  top_k?: number;
+  mode?: "offline" | "online";
+};
+
+export type AnswerResponse = {
+  answer_summary: string[];
+  evidence_used: Array<{
+    card_id: string;
+    claim_supported?: string;
+    source_url?: string;
+  }>;
+  limitations?: string;
+  follow_up_prompts?: string[];
+};
