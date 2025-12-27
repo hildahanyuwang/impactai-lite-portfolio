@@ -7,7 +7,7 @@ export interface ScoredCard extends EvidenceCard {
 
 /**
  * Keyword-weighted retrieval over a small, static evidence-card database.
- * Offline demo: keep it transparent, deterministic, and easy to audit.
+ * Offline demo: transparent, deterministic, and easy to audit.
  */
 export const retrieveTopKCards = (query: string, k: number = 6): EvidenceCard[] => {
   const cards = EVIDENCE_CARDS as unknown as EvidenceCard[];
@@ -23,32 +23,16 @@ export const retrieveTopKCards = (query: string, k: number = 6): EvidenceCard[] 
 
   if (tokens.length === 0) return cards.slice(0, k);
 
-  /**
-   * IMPORTANT:
-   * Do NOT type fields as `keyof EvidenceCard` here, because the EvidenceCard
-   * type may not include some retrieval-only fields (e.g., title/summary/population).
-   * We keep it as string keys and safely read values.
-   */
-  const FIELD_WEIGHTS = [
-    ["title", 3.0],
+  // All fields below exist in your EvidenceCard type.
+  const FIELD_WEIGHTS: Array<[keyof EvidenceCard, number]> = [
     ["intervention", 2.5],
     ["outcome", 2.5],
-    ["summary", 2.0],
-    ["population", 1.5],
+    ["finding_summary", 2.0],
+    ["domain", 1.5],
     ["geography", 1.2],
-    ["domain", 1.2],
+    ["citation", 1.0],
     ["study_id", 0.8],
-  ] as const;
-
-  type FieldKey = (typeof FIELD_WEIGHTS)[number][0];
-
-  const normalizeText = (v: unknown): string => {
-    if (!v) return "";
-    if (typeof v === "string") return v;
-    if (Array.isArray(v)) return v.map((x) => String(x)).join(" ");
-    // allow numbers/booleans etc.
-    return String(v);
-  };
+  ];
 
   const scoreText = (text: string, token: string) => {
     const t = text.toLowerCase();
@@ -64,10 +48,11 @@ export const retrieveTopKCards = (query: string, k: number = 6): EvidenceCard[] 
 
     for (const token of tokens) {
       for (const [field, w] of FIELD_WEIGHTS) {
-        const val = (card as unknown as Record<FieldKey, unknown>)[field];
-        const text = normalizeText(val);
-        if (text.length > 0) {
-          score += w * scoreText(text, token);
+        const val = card[field];
+
+        // All fields listed are strings except quality_flags (not used here).
+        if (typeof val === "string" && val.length > 0) {
+          score += w * scoreText(val, token);
         }
       }
     }
@@ -76,7 +61,7 @@ export const retrieveTopKCards = (query: string, k: number = 6): EvidenceCard[] 
     if (tokens.includes("impact") || tokens.includes("effect")) score *= 1.05;
     if (tokens.includes("compare") || tokens.includes("versus")) score *= 1.03;
 
-    return { ...(card as EvidenceCard), score };
+    return { ...card, score };
   });
 
   return scored
@@ -86,9 +71,7 @@ export const retrieveTopKCards = (query: string, k: number = 6): EvidenceCard[] 
 };
 
 export const getCardById = (id: string): EvidenceCard | undefined => {
-  return (EVIDENCE_CARDS as unknown as EvidenceCard[]).find(
-    (c: any) => c?.card_id === id
-  );
+  return (EVIDENCE_CARDS as unknown as EvidenceCard[]).find((c) => c.card_id === id);
 };
 
 export const getDbStats = () => {
@@ -98,17 +81,18 @@ export const getDbStats = () => {
   const domains = new Set<string>();
   const countries = new Set<string>();
 
-  for (const c of cards as any[]) {
-    if (c?.study_id) studyIds.add(String(c.study_id));
-    if (c?.domain) domains.add(String(c.domain));
+  for (const c of cards) {
+    if (c.study_id) studyIds.add(c.study_id);
+    if (c.domain) domains.add(c.domain);
 
-    const geo = typeof c?.geography === "string" ? c.geography : "";
+    // geography is a string in your type, but be defensive anyway
+    const geo = typeof c.geography === "string" ? c.geography : "";
     if (geo) {
       geo
         .split(",")
-        .map((s: string) => s.trim())
+        .map((s) => s.trim())
         .filter(Boolean)
-        .forEach((x: string) => countries.add(x));
+        .forEach((x) => countries.add(x));
     }
   }
 
