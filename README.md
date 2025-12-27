@@ -23,10 +23,10 @@ This public version is intentionally offline (no external model calls) so it can
 - If a user enters an unknown query, the UI prompts them to try a sample query.
 
 ## Repository structure
-- src/ — React UI and demo logic
-- src/data/evidence_cards.json — curated evidence cards with source_url links
-- src/data/demo_outputs.json — precomputed answers keyed by sample queries
-- public/ImpactAI-lite_PitchDeck_OFFLINE.pdf — embedded pitch deck preview
+- src/ - React UI and demo logic
+- src/data/evidence_cards.json - curated evidence cards with source_url links
+- src/data/demo_outputs.json - precomputed answers keyed by sample queries
+- public/ImpactAI-lite_PitchDeck_OFFLINE.pdf - embedded pitch deck preview
 
 ## Run locally
 npm install
